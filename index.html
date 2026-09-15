@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>worled — guess tanaya's typo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="wordmark-main">worled</span><span class="cursor-blink">_</span>
+    </div>
+    <div class="topbar-actions">
+      <button id="info-btn" class="icon-btn" aria-label="How to play" title="How to play">?</button>
+      <button id="stats-btn" class="icon-btn" aria-label="Statistics" title="Statistics">#</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="board" class="board" role="group" aria-label="Guess grid"></div>
+
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+
+    <div id="keyboard" class="keyboard" aria-label="On-screen keyboard"></div>
+  </main>
+
+  <!-- How to play -->
+  <div id="info-modal" class="modal-backdrop hidden">
+    <div class="modal">
+      <button class="modal-close" data-close="info-modal" aria-label="Close">×</button>
+      <h2>How to play</h2>
+      <p>Every day, the game picks one from a running list of typos Tanaya has made. Guess it in 6 tries.</p>
+      <p>After each guess, the tiles show how close you were:</p>
+      <div class="example-row">
+        <div class="tile filled correct">T</div>
+        <div class="tile filled">E</div>
+        <div class="tile filled">H</div>
+      </div>
+      <p><span class="legend-swatch correct"></span> right letter, right spot</p>
+      <div class="example-row">
+        <div class="tile filled">W</div>
+        <div class="tile filled present">I</div>
+        <div class="tile filled">E</div>
+        <div class="tile filled">R</div>
+        <div class="tile filled">D</div>
+      </div>
+      <p><span class="legend-swatch present"></span> right letter, wrong spot</p>
+    </div>
+  </div>
+
+  <!-- Result pop-up, shown right after a win or a final wrong guess -->
+  <div id="result-modal" class="modal-backdrop hidden">
+    <div class="modal">
+      <button class="modal-close" data-close="result-modal" aria-label="Close">×</button>
+      <h2 id="result-title">Correct!</h2>
+      <p id="result-text" class="result-text"></p>
+      <div class="modal-btn-row">
+        <button id="share-btn" class="secondary-btn">Share result</button>
+        <button id="result-next-btn" class="primary-btn" data-close="result-modal">Nice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div id="stats-modal" class="modal-backdrop hidden">
+    <div class="modal">
+      <button class="modal-close" data-close="stats-modal" aria-label="Close">×</button>
+      <h2>Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat"><span id="stat-played" class="stat-num">0</span><span class="stat-label">Played</span></div>
+        <div class="stat"><span id="stat-winpct" class="stat-num">0</span><span class="stat-label">Win %</span></div>
+        <div class="stat"><span id="stat-streak" class="stat-num">0</span><span class="stat-label">Streak</span></div>
+        <div class="stat"><span id="stat-maxstreak" class="stat-num">0</span><span class="stat-label">Max streak</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
