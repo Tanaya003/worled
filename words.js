@@ -15,4 +15,11 @@ const TYPO_LIST = [
   { typo: "thnak", correct: "thank" },
   { typo: "makig", correct: "making" },
   { typo: "udate", correct: "update" },
+  { typo: "razpr", correct: "razor" },
+  { typo: "tmits", correct: "it's" },
+  { typo: "owjat", correct: "or what" },
+  { typo: "hoing", correct: "going" },
+  { typo: "beaty", correct: "beauty" },
+  { typo: "plave", correct: "place" },
+  { typo: "mayve", correct: "maybe" },
 ];
